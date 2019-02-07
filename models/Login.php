@@ -43,7 +43,6 @@ class Login extends Model
     {
         if ($this->validate()) {
             $login = Yii::$app->user->login($this->getUser(), 3600 * 24);
-            Yii::$app->user->identity->logged_at = Yii::$app->formatter->asTimestamp(date('Y-d-m h:i:s'));
             Yii::$app->user->identity->save();
             return $login;
         }

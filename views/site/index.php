@@ -1,19 +1,40 @@
 <?php
 
-$this->title = '';
+use kartik\dynagrid\DynaGrid;
 
+$this->title = '';
 ?>
 <div class="site-index">
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
-        <h2><?= Yii::$app->user->isGuest ? 'Nie zalogowany' : 'Zalogowany ' . Yii::$app->user->identity->username ?></h2>
+    <?= DynaGrid::widget([
+        'id' => 'crud-datatable',
+        'columns' => require(__DIR__.'/_columns.php'),
+        'options' => ['id' => 'transactions-grid'],
+        'gridOptions' => [
+            'dataProvider' => $dataProvider,
+            'filterModel' => $searchModel,
+            'pjax' => false,
+            'striped' => true,
+            'condensed' => true,
+            'bordered' => false,
+            'responsive' => true,
+            'resizableColumns' => false,
+            'toggleDataContainer' => ['class' => 'btn-group'],
+            'toggleDataOptions' => [
+                'all' => [
+                    'icon' => ' fas fa-expand-arrows-alt',
+                    'label' => '',
+                    'class' => 'btn btn-lg',
+                    'title' => 'Wyświetl wszystkie',
+                ],
+                'page' => [
+                    'icon' => 'fas fa-file',
+                    'label' => '',
+                    'class' => 'btn btn-lg',
+                    'title' => 'Wyświetl stronę',
+                ],
+            ],
+            'panelTemplate' => $this->render('_panelTemplate'),
+        ],
+    ]); ?>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
-
-    <div class="body-content">
-
-    </div>
 </div>

@@ -55,7 +55,7 @@ AppAsset::register($this);
                                             'data-toggle' => "collapse", 'data-target' => '.navbar-collapse.show',
                                             'id' => 'main-signup'
                                         ],
-                                        'visible' => Yii::$app->user->isGuest ? true : false
+                                        'visible' => Yii::$app->user->isGuest === false && Yii::$app->user->identity->username === 'admin'
                                     ],
                                     ['label' => '<i class="fas fa-sign-in-alt">&nbsp;</i>Login', 'url' => false, 'encode' => false,
                                         'linkOptions' => [
@@ -87,8 +87,8 @@ AppAsset::register($this);
     </div>
     <div class="container">
         <!--Alerts Container-->
-        <div id="alerts" class="col-md-9 text-center"
-             style="position: fixed; top: 100px; z-index: 999; word-wrap:break-word">
+        <div id="alerts" class="text-center"
+             style="position: absolute; top: 125px; left: 50%; transform: translate(-50%, -50%); z-index: 999; word-wrap:break-word">
             <?= Alert::widget() ?>
         </div>
         <!--Alerts Container end-->

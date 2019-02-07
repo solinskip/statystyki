@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\search\EMaterialySearch;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -23,7 +24,7 @@ class SiteController extends Controller
                 'only' => ['logout'],
                 'rules' => [
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['signup', 'logout'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -39,13 +40,19 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays homepage.
-     *
-     * @return string
-     */
+ * Displays homepage.
+ *
+ * @return string
+ */
     public function actionIndex()
     {
-        return $this->render('index');
+        $searchModel = new EMaterialySearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
     }
 
     /**
@@ -58,7 +65,7 @@ class SiteController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             if ($model->signup()) {
-                Yii::$app->session->setFlash('success', 'Rejestracja przebiegła pomyślnie, teraz możesz się zalogować na swoje konto.');
+                Yii::$app->session->setFlash('success', 'Rejestracja przebiegła pomyślnie');
 
                 return $this->redirect(Yii::$app->request->baseUrl . '/index.php' . '/site/index');
             }
