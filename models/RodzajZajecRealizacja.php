@@ -52,7 +52,7 @@ class RodzajZajecRealizacja extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getRealizacji()
+    public function getRealizacja()
     {
         return $this->hasOne(Realizacja::className(), ['id_realizacji' => 'id_realizacji']);
     }

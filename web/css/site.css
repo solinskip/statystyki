@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
 }
+
 html,
 body {
     height: 100%;
@@ -38,6 +39,10 @@ body {
 .not-set {
     color: #c55;
     font-style: italic;
+}
+
+a {
+    color: #4285F4;
 }
 
 /* add sorting icons to gridview sort links */
@@ -100,9 +105,9 @@ a.desc:after {
     border: none;
 }
 
-@media(max-width:767px) {
+@media (max-width: 767px) {
     .nav li > form > button.logout {
-        display:block;
+        display: block;
         text-align: left;
         width: 100%;
         padding: 10px 15px;
@@ -123,6 +128,10 @@ a.desc:after {
     margin: 0;
 }
 
+#growl {
+    z-index: 9999 !important;
+}
+
 .modal-sub {
     border: 1px solid #343a40;
     color: #343a40;
@@ -132,4 +141,113 @@ a.desc:after {
 .modal-sub:hover {
     background-color: #343a40;
     color: #f8f9fa;
+}
+
+.btn-transactions {
+    color: rebeccapurple;
+}
+
+ul.pagination {
+    list-style: none;
+    display: inline-block;
+    padding: 0;
+    margin-top: 10px;
+}
+
+ul.pagination li {
+    display: inline;
+    text-align: center;
+}
+
+.pagination a {
+    float: left;
+    display: block;
+    font-size: 15px;
+    text-decoration: none;
+    padding: 5px 12px;
+    margin-left: -1px;
+    border: 1px solid #ddd;
+    line-height: 1.5;
+    color: #4285F4;
+    background: #fff;
+}
+
+.active-page {
+    cursor: default;
+}
+
+li.pagination a:active {
+    outline: none;
+}
+
+.pagination li:first-child a {
+    -moz-border-radius: 6px 0 0 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px 0 0 6px;
+}
+
+.pagination li:last-child a {
+    -moz-border-radius: 0 6px 6px 0;
+    -webkit-border-radius: 0;
+    border-radius: 0 6px 6px 0;
+}
+
+li.pagination a:hover {
+    background: #eee;
+}
+
+.active-page > a {
+    border-color: #4285F4;
+    background: #4285F4;
+    color: #fff;
+}
+
+li.first.disabled, li.last.disabled {
+    display: none;
+}
+
+.help-block {
+    color: #dc3545;
+}
+
+.popover-title {
+    font-size: 16px !important;
+    padding: 4px 0 4px 10px;
+}
+
+.popover-title > button {
+    padding-right: 10px;
+}
+
+.popover-content {
+    width: 98%;
+    margin: auto;
+}
+
+.kv-expand-detail-row {
+    border-top: 2px solid #66BB6A !important;
+}
+
+.group-odd {
+    background-color: #616366;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.group-even {
+    background-color: #919396;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.kv-drp-dropdown input {
+    padding-right: 10px !important;
+    padding-left: 10px !important;
+}
+
+.select2-selection__clear {
+    top: 3px !important;
+    right: 30px !important;
 }

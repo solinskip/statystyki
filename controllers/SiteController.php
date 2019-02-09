@@ -2,7 +2,8 @@
 
 namespace app\controllers;
 
-use app\models\search\EMaterialySearch;
+use app\models\Realizacja;
+use app\models\search\RealizacjaSearch;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -10,6 +11,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\Signup;
 use app\models\Login;
+use app\models\search\ProwadzacySearch;
 
 class SiteController extends Controller
 {
@@ -46,7 +48,7 @@ class SiteController extends Controller
  */
     public function actionIndex()
     {
-        $searchModel = new EMaterialySearch();
+        $searchModel = new RealizacjaSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [

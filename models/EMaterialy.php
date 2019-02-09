@@ -65,7 +65,7 @@ class EMaterialy extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getEMaterialyProwadzacies()
+    public function getEMaterialyProwadzacy()
     {
         return $this->hasMany(EMaterialyProwadzacy::className(), ['id_e_materialu' => 'id_e_materialu']);
     }

@@ -52,7 +52,7 @@ class Kierunek extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getWydzialu()
+    public function getWydzial()
     {
         return $this->hasOne(Wydzial::className(), ['id_wydzialu' => 'id_wydzialu']);
     }

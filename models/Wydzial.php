@@ -47,7 +47,7 @@ class Wydzial extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getKieruneks()
+    public function getKierunek()
     {
         return $this->hasMany(Kierunek::className(), ['id_wydzialu' => 'id_wydzialu']);
     }

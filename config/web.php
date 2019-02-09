@@ -10,7 +10,7 @@ $config = [
     'language' => 'pl',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@npm' => '@vendor/npm-asset',
     ],
     'components' => [
         'request' => [
@@ -55,13 +55,97 @@ $config = [
         ],
     ],
     'modules' => [
-        'gridview' =>  [
+        'gridview' => [
             'class' => '\kartik\grid\Module',
         ],
-        'dynagrid'=> [
-            'class'=>'\kartik\dynagrid\Module',
-            // other module settings
+        'dynagrid' => [
+            'class' => '\kartik\dynagrid\Module',
+            'dynaGridOptions' => [
+//                'storage' => 'db',
+                'toggleButtonFilter' => [
+                    //'title'=> Yii::t('appGlowne', 'Zapisz filtr')
+                ],
+                'toggleButtonSort' => [
+                    //'title'=> Yii::t('appGlowne', 'Zapisz ustawienia sortowania')
+                ],
+                'gridOptions' => [
+                    'resizableColumns' => false,
+                    'toggleDataOptions' => [
+                        'all' => [
+                            'icon' => '',
+                            'label' => '<i class="fa fa-arrows-alt"></i>',
+                            'class' => 'btn btn-default',
+                            //'title' => Yii::t('appGlowne', 'Pokaż wszystkie rekordy'),
+                            'showConfirmAlert' => false,
+                        ],
+                        'page' => [
+                            'icon' => '',
+                            'label' => '<i class="fa fa-compress"></i>',
+                            'class' => 'btn btn-default',
+                            //'title' => Yii::t('appGlowne', 'Pokaż stronę'),
+                        ],
+                    ],
+                    'export' => [
+                        'icon' => '',
+                        'label' => '<i class="fas fa-download"></i>',
+                        'showConfirmAlert' => false,
+                        'target' => '_self',
+                        'header' => '',
+                    ],
+                    'exportConfig' => [
+                        'html' => [
+                            'icon' => '',
+                            'label' => '<i class="fab fa-html5" style="color: #1c94c4"></i> ' . Yii::t('appexport', 'HTML'),
+                            'filename' => Yii::t('appexport', 'Export') . ' ' . date('d-m-Y G:i:s'),
+                        ],
+                        'csv' => [
+                            'icon' => '',
+                            'label' => '<i class="fas fa-file-csv"></i> ' . Yii::t('appexport', 'CSV'),
+                            'filename' => Yii::t('appexport', 'Export') . ' ' . date('d-m-Y G:i:s'),
+                        ],
+                        'txt' => [
+                            'icon' => '',
+                            'label' => '<i class="fas fa-font"></i> ' . Yii::t('appexport', 'Text'),
+                            'filename' => Yii::t('appexport', 'Export') . ' ' . date('d-m-Y G:i:s'),
+                        ],
+                        'xls' => [
+                            'icon' => '',
+                            'label' => '<i class="far fa-file-excel" style="color: #1c7430"></i> ' . Yii::t('appexport', 'Excel'),
+                            'filename' => Yii::t('appexport', 'Export') . ' ' . date('d-m-Y G:i:s'),
+                        ],
+                        'pdf' => [
+                            'icon' => '',
+                            'label' => '<i class="far fa-file-pdf" style="color: orange"></i> ' . Yii::t('appexport', 'PDF'),
+                            'filename' => Yii::t('appexport', 'Export') . ' ' . date('d-m-Y G:i:s'),
+                            'config' => [
+                                'options' => [
+                                    'title' => Yii::t('appexport', 'Export') . ' ' . date('d-m-Y G:i:s'),
+                                    'subject' => Yii::t('appGlowne', 'Export'),
+                                    'keywords' => null
+                                ],
+                                'methods' => [
+                                    'SetHeader' => ['NeoGage &reg; ||' . ' ' . date("d-m-Y")],
+                                    'SetFooter' => ['&nbsp;{PAGENO}'],
+                                ]
+                            ]
+                        ],
+                    ]
+                ]
+            ]
         ],
+    ],
+    'container' => [
+        'definitions' => [
+            yii\widgets\LinkPager::class => [
+                'firstPageLabel' => '<<',
+                'lastPageLabel' => '>>',
+                'nextPageLabel' => false,
+                'prevPageLabel' => false,
+                'activePageCssClass' => 'active-page',
+                'pageCssClass' => 'pagination',
+                'maxButtonCount' => 10
+            ]
+        ]
     ],
     'params' => $params,
 ];

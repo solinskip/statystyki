@@ -52,7 +52,7 @@ class RealizacjaKierunek extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getKierunku()
+    public function getKierunek()
     {
         return $this->hasOne(Kierunek::className(), ['id_kierunku' => 'id_kierunku']);
     }

@@ -22,9 +22,21 @@ use Yii;
  */
 class Realizacja extends \yii\db\ActiveRecord
 {
-    /**
-     * {@inheritdoc}
-     */
+    //virtual variable
+    public $imie_prowadzacego;
+    public $nazwisko_prowadzacego;
+    public $stanowisko_prowadzacego;
+    public $adres_email_prowadzacego;
+    public $nazwa_platformy;
+    public $nazwa_zajec_rodzaj;
+    public $liczba_godzin_rodzaj;
+    public $rodzaj_e_materialy;
+    public $nazwa_e_materialy;
+    public $dziedzina_e_materialy;
+    public $opis_e_materialy;
+    public $nazwa_kierunku;
+    public $nazwa_wydzialu;
+
     public static function tableName()
     {
         return 'realizacja';
@@ -62,7 +74,7 @@ class Realizacja extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getRealizacjaEMaterialies()
+    public function getRealizacjaEMaterialy()
     {
         return $this->hasMany(RealizacjaEMaterialy::className(), ['id_realizacji' => 'id_realizacji']);
     }
@@ -70,7 +82,7 @@ class Realizacja extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getRealizacjaKieruneks()
+    public function getRealizacjaKierunek()
     {
         return $this->hasMany(RealizacjaKierunek::className(), ['id_realizacji' => 'id_realizacji']);
     }
@@ -78,7 +90,7 @@ class Realizacja extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getRealizacjaPlatformas()
+    public function getRealizacjaPlatforma()
     {
         return $this->hasMany(RealizacjaPlatforma::className(), ['id_realizacji' => 'id_realizacji']);
     }
@@ -86,7 +98,7 @@ class Realizacja extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getRealizacjaProwadzacies()
+    public function getRealizacjaProwadzacy()
     {
         return $this->hasMany(RealizacjaProwadzacy::className(), ['id_realizacji' => 'id_realizacji']);
     }
@@ -94,7 +106,7 @@ class Realizacja extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getRodzajZajecRealizacjas()
+    public function getRodzajZajecRealizacja()
     {
         return $this->hasMany(RodzajZajecRealizacja::className(), ['id_realizacji' => 'id_realizacji']);
     }

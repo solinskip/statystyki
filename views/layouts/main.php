@@ -85,7 +85,7 @@ AppAsset::register($this);
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container-fluid" style="padding-top: 70px">
         <!--Alerts Container-->
         <div id="alerts" class="text-center"
              style="position: absolute; top: 125px; left: 50%; transform: translate(-50%, -50%); z-index: 999; word-wrap:break-word">

@@ -58,7 +58,7 @@ class Prowadzacy extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getEMaterialyProwadzacies()
+    public function getEMaterialyProwadzacy()
     {
         return $this->hasMany(EMaterialyProwadzacy::className(), ['id_prowadzacego' => 'id_prowadzacego']);
     }
@@ -66,7 +66,7 @@ class Prowadzacy extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getRealizacjaProwadzacies()
+    public function getRealizacjaProwadzacy()
     {
         return $this->hasMany(RealizacjaProwadzacy::className(), ['id_prowadzacego' => 'id_prowadzacego']);
     }

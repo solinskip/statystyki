@@ -52,7 +52,7 @@ class RealizacjaProwadzacy extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getProwadzacego()
+    public function getProwadzacy()
     {
         return $this->hasOne(Prowadzacy::className(), ['id_prowadzacego' => 'id_prowadzacego']);
     }
@@ -60,7 +60,7 @@ class RealizacjaProwadzacy extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getRealizacji()
+    public function getRealizacja()
     {
         return $this->hasOne(Realizacja::className(), ['id_realizacji' => 'id_realizacji']);
     }
