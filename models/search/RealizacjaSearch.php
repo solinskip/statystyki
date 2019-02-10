@@ -42,7 +42,6 @@ class RealizacjaSearch extends Realizacja
      * Creates data provider instance with search query applied
      *
      * @param array $params
-     *
      * @return ActiveDataProvider
      */
     public function search($params)
@@ -160,8 +159,7 @@ class RealizacjaSearch extends Realizacja
         $query->andFilterWhere([
             'realizacja.liczba_godzin' => $this->liczba_godzin,
             'realizacja.start_kursu' => $this->start_kursu,
-            'realizacja.koniec_kursu' => $this->koniec_kursu,
-            'realizacja.koniec_kursu' => $this->koniec_kursu,
+            'realizacja.koniec_kursu' => $this->koniec_kursu
         ]);
 
         $query->andFilterWhere(['like', 'realizacja.nazwa_projektu', $this->nazwa_projektu])
@@ -179,7 +177,6 @@ class RealizacjaSearch extends Realizacja
             ->andFilterWhere(['like', 'e_materialy.opis', $this->opis_e_materialy])
             ->andFilterWhere(['like', 'nazwa_kierunku', $this->nazwa_kierunku])
             ->andFilterWhere(['like', 'nazwa_wydzialu', $this->nazwa_wydzialu]);
-
 
         return $dataProvider;
     }

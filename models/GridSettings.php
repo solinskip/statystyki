@@ -48,7 +48,7 @@ class GridSettings extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'user_id' => 'ID użytkownika',
+            'user_id' => 'Nazwa użytkownika',
             'name' => 'Nazwa szablonu',
             'settings' => 'Kolumny',
             'columnsOn' => 'Kolumny wybrane',
@@ -65,6 +65,24 @@ class GridSettings extends \yii\db\ActiveRecord
         return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 
+    public function visibleColumn($columnName)
+    {
+        if (Yii::$app->request->get('templateId') !== null) {
+            $settings = GridSettings::findOne(Yii::$app->request->get('templateId'));
+            $settings = json_decode($settings->settings, true);
+            $visibleColumns = explode(',', $settings['columns']);
+
+            return in_array($columnName, $visibleColumns);
+        }
+
+        return true;
+    }
+
+    /**
+     * Item list form sortable widget
+     *
+     * @return array
+     */
     public static function getColumnItems()
     {
         return [

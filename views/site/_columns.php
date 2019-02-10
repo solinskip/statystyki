@@ -1,10 +1,6 @@
 <?php
 
 use app\models\GridSettings;
-use yii\helpers\ArrayHelper;
-use yii\helpers\Url;
-
-//$settings = GridSettings::find()->
 
 return [
     [
@@ -14,27 +10,32 @@ return [
     [
         'class' => '\kartik\grid\DataColumn',
         'attribute' => 'nazwa_projektu',
-//        'visible' =>
+        'visible' => GridSettings::visibleColumn('nazwa_projektu'),
     ],
     [
         'class' => '\kartik\grid\DataColumn',
         'attribute' => 'liczba_godzin',
+        'visible' => GridSettings::visibleColumn('liczba_godzin'),
     ],
     [
         'class' => '\kartik\grid\DataColumn',
         'attribute' => 'start_kursu',
+        'visible' => GridSettings::visibleColumn('start_kursu'),
     ],
     [
         'class' => '\kartik\grid\DataColumn',
         'attribute' => 'koniec_kursu',
+        'visible' => GridSettings::visibleColumn('koniec_kursu'),
     ],
     [
         'class' => '\kartik\grid\DataColumn',
         'attribute' => 'opis',
+        'visible' => GridSettings::visibleColumn('opis'),
     ],
     [
         'class' => '\kartik\grid\DataColumn',
         'attribute' => 'imie_prowadzacego',
+        'visible' => GridSettings::visibleColumn('imie_prowadzacego'),
         'format' => 'raw',
         'value' => function ($model) {
             $result = '';
@@ -48,6 +49,7 @@ return [
     [
         'class' => '\kartik\grid\DataColumn',
         'attribute' => 'nazwisko_prowadzacego',
+        'visible' => GridSettings::visibleColumn('nazwisko_prowadzacego'),
         'format' => 'raw',
         'value' => function ($model) {
             $resutl = '';
@@ -61,6 +63,7 @@ return [
     [
         'class' => '\kartik\grid\DataColumn',
         'attribute' => 'stanowisko_prowadzacego',
+        'visible' => GridSettings::visibleColumn('stanowsiko_prowadzacego'),
         'format' => 'raw',
         'value' => function ($model) {
             $result = '';
@@ -74,6 +77,7 @@ return [
     [
         'class' => '\kartik\grid\DataColumn',
         'attribute' => 'adres_email_prowadzacego',
+        'visible' => GridSettings::visibleColumn('adres_email_prowadzacego'),
         'format' => 'raw',
         'value' => function ($model) {
             $result = '';
@@ -87,6 +91,7 @@ return [
     [
         'class' => '\kartik\grid\DataColumn',
         'attribute' => 'nazwa_platformy',
+        'visible' => GridSettings::visibleColumn('nazwa_platformy'),
         'format' => 'raw',
         'value' => function ($model) {
             $result = '';
@@ -100,6 +105,7 @@ return [
     [
         'class' => '\kartik\grid\DataColumn',
         'attribute' => 'nazwa_zajec_rodzaj',
+        'visible' => GridSettings::visibleColumn('nazwa_zajec_rodzaj'),
         'format' => 'raw',
         'value' => function ($model) {
             $result = '';
@@ -113,6 +119,7 @@ return [
     [
         'class' => '\kartik\grid\DataColumn',
         'attribute' => 'liczba_godzin_rodzaj',
+        'visible' => GridSettings::visibleColumn('liczba_godzin_rodzaj'),
         'format' => 'raw',
         'value' => function ($model) {
             $result = '';
@@ -126,6 +133,7 @@ return [
     [
         'class' => '\kartik\grid\DataColumn',
         'attribute' => 'rodzaj_e_materialy',
+        'visible' => GridSettings::visibleColumn('rodzaj_e_materialy'),
         'format' => 'raw',
         'value' => function ($model) {
             $result = '';
@@ -139,6 +147,7 @@ return [
     [
         'class' => '\kartik\grid\DataColumn',
         'attribute' => 'nazwa_e_materialy',
+        'visible' => GridSettings::visibleColumn('nazwa_e_materialy'),
         'format' => 'raw',
         'value' => function ($model) {
             $result = '';
@@ -152,6 +161,7 @@ return [
     [
         'class' => '\kartik\grid\DataColumn',
         'attribute' => 'dziedzina_e_materialy',
+        'visible' => GridSettings::visibleColumn('dziedzina_e_materialy'),
         'format' => 'raw',
         'value' => function ($model) {
             $result = '';
@@ -165,6 +175,7 @@ return [
     [
         'class' => '\kartik\grid\DataColumn',
         'attribute' => 'opis_e_materialy',
+        'visible' => GridSettings::visibleColumn('opis_e_materialy'),
         'format' => 'raw',
         'value' => function ($model) {
             $result = '';
@@ -178,6 +189,7 @@ return [
     [
         'class' => '\kartik\grid\DataColumn',
         'attribute' => 'nazwa_kierunku',
+        'visible' => GridSettings::visibleColumn('nazwa_kierunku'),
         'format' => 'raw',
         'value' => function ($model) {
             $result = '';
@@ -191,6 +203,7 @@ return [
     [
         'class' => '\kartik\grid\DataColumn',
         'attribute' => 'nazwa_wydzialu',
+        'visible' => GridSettings::visibleColumn('nazwa_wydzialu'),
         'format' => 'raw',
         'value' => function ($model) {
             $result = '';

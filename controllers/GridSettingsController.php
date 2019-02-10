@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\GridSettings;
 use app\models\search\GridSettingsSearch;
+use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\helpers\Url;
 use yii\web\Controller;
@@ -22,6 +23,17 @@ class GridSettingsController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['index', 'create', 'apply-filter', 'delete'],
+                'rules' => [
+                    [
+                        'actions' => ['index', 'create', 'apply-filter', 'delete'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -34,6 +46,7 @@ class GridSettingsController extends Controller
 
     /**
      * Lists all GridSettings models.
+     *
      * @return mixed
      */
     public function actionIndex()
@@ -57,8 +70,9 @@ class GridSettingsController extends Controller
         $model = new GridSettings();
 
         if ($model->load(Yii::$app->request->post())) {
+            $filter = array_filter(current(Yii::$app->request->get()));
             $model->user_id = Yii::$app->user->id;
-            $model->settings = json_encode($model->columnsOn);
+            $model->settings = json_encode(['columns' => $model->columnsOn, 'filter' => $filter]);
             $model->created_at = date('Y-m-d H:i:s');
             if ($model->save()) {
                 Yii::$app->session->setFlash('success', 'Szablon został dodany prawidłowo.');
@@ -82,9 +96,9 @@ class GridSettingsController extends Controller
     {
         $gridSettings = GridSettings::findOne($id);
         $filters = json_decode($gridSettings->settings, true);
-        $query = isset($filters['filter']) ? '?' . http_build_query(['RealizacjaSearch' => $filters['filter']]) : '';
+        $query = isset($filters['filter']) ? '&' . http_build_query(['RealizacjaSearch' => $filters['filter']]) : '';
 
-        return $this->redirect(Url::to(['site/index']) . $query);
+        return $this->redirect(Url::to(['site/index', 'templateId' => $id]) . $query);
     }
 
     /**

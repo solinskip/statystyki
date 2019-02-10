@@ -1,6 +1,7 @@
 <?php
 
 use kartik\dynagrid\DynaGrid;
+use yii\bootstrap\Modal;
 
 ?>
 <div class="site-index">
@@ -11,7 +12,6 @@ use kartik\dynagrid\DynaGrid;
             'options' => ['id' => 'site-grid'],
             'gridOptions' => [
                 'dataProvider' => $dataProvider,
-                'filterModel' => $searchModel,
                 'pjax' => true,
                 'striped' => true,
                 'condensed' => true,

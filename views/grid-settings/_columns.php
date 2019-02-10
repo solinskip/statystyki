@@ -35,7 +35,7 @@ return [
         'template' => '{view} {delete}',
         'buttons' => [
             'view' => function ($url, $model) {
-                return \yii\helpers\Html::a('<i class="far fa-eye"></i>', Url::to(['grid-settings/apply-filter', 'id' => $model->id]), ['title' => 'Zastosuj filtr']);
+                return Html::a('<i class="far fa-eye"></i>', Url::to(['grid-settings/apply-filter', 'id' => $model->id]), ['title' => 'Zastosuj filtr']);
             },
             'delete' => function ($url, $model) {
                 return Html::a('<span class="fas fa-trash-alt" style="color:#222d32;"></span>', $url, ['data-pjax' => 0, 'title' => 'Usuń',
@@ -46,5 +46,4 @@ return [
             },
         ],
     ],
-
 ];  

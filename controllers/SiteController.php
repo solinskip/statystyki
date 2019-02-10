@@ -57,6 +57,7 @@ class SiteController extends Controller
 
     /**
      * Creates a new Signup model.
+     *
      * @return mixed
      * @throws \yii\base\Exception
      */
