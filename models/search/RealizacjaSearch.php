@@ -158,14 +158,14 @@ class RealizacjaSearch extends Realizacja
         );
 
         $query->andFilterWhere([
-            'liczba_godzin' => $this->liczba_godzin,
-            'start_kursu' => $this->start_kursu,
-            'koniec_kursu' => $this->koniec_kursu,
-            'koniec_kursu' => $this->koniec_kursu,
+            'realizacja.liczba_godzin' => $this->liczba_godzin,
+            'realizacja.start_kursu' => $this->start_kursu,
+            'realizacja.koniec_kursu' => $this->koniec_kursu,
+            'realizacja.koniec_kursu' => $this->koniec_kursu,
         ]);
 
-        $query->andFilterWhere(['like', 'nazwa_projektu', $this->nazwa_projektu])
-            ->andFilterWhere(['like', 'opis', $this->opis])
+        $query->andFilterWhere(['like', 'realizacja.nazwa_projektu', $this->nazwa_projektu])
+            ->andFilterWhere(['like', 'realizacja.opis', $this->opis])
             ->andFilterWhere(['like', 'imie_prowadzacego', $this->imie_prowadzacego])
             ->andFilterWhere(['like', 'nazwisko_prowadzacego', $this->nazwisko_prowadzacego])
             ->andFilterWhere(['like', 'stanowisko', $this->stanowisko_prowadzacego])

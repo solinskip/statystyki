@@ -104,6 +104,7 @@ AppAsset::register($this);
                 'class' => 'py-5 my-5',
                 'style' => ''
             ],
+            'size'=>'modal-lg',
             'header' => '<h4 id="modalHeaderTitle" class="text-light"></h4>',
             'closeButton' => ['label' => '<i class="fas fa-window-close text-light"></i>', 'tag' => 'i'],
             'headerOptions' => ['id' => 'modalHeader', 'class' => 'bg-dark', 'style' => 'display:block;'],

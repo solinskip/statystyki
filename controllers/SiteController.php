@@ -2,17 +2,14 @@
 
 namespace app\controllers;
 
-use app\models\GridSettings;
-use app\models\Realizacja;
-use app\models\search\RealizacjaSearch;
 use Yii;
 use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\Response;
-use yii\filters\VerbFilter;
 use app\models\Signup;
 use app\models\Login;
-use app\models\search\ProwadzacySearch;
+use app\models\search\RealizacjaSearch;
 
 class SiteController extends Controller
 {
@@ -55,26 +52,6 @@ class SiteController extends Controller
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-        ]);
-    }
-
-    public function actionGridSave()
-    {
-        $model = new GridSettings();
-
-        if ($model->load(Yii::$app->request->post())) {
-            $model->user_id = Yii::$app->user->id;
-            $model->columns = json_encode($model->columnsOn);
-            $model->created_at = date('Y-m-d H:i:s');
-            if ($model->save()) {
-                Yii::$app->session->setFlash('success', 'Szablon został dodany prawidłowo.');
-            }
-
-            return $this->redirect('index');
-        }
-
-        return $this->renderAjax('_gridSave', [
-            'model' => $model,
         ]);
     }
 
