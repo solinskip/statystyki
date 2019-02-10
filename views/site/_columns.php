@@ -1,7 +1,10 @@
 <?php
 
+use app\models\GridSettings;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
+
+//$settings = GridSettings::find()->
 
 return [
     [
@@ -11,6 +14,7 @@ return [
     [
         'class' => '\kartik\grid\DataColumn',
         'attribute' => 'nazwa_projektu',
+//        'visible' =>
     ],
     [
         'class' => '\kartik\grid\DataColumn',

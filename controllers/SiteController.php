@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\GridSettings;
 use app\models\Realizacja;
 use app\models\search\RealizacjaSearch;
 use Yii;
@@ -42,10 +43,10 @@ class SiteController extends Controller
     }
 
     /**
- * Displays homepage.
- *
- * @return string
- */
+     * Displays homepage.
+     *
+     * @return string
+     */
     public function actionIndex()
     {
         $searchModel = new RealizacjaSearch();
@@ -57,9 +58,30 @@ class SiteController extends Controller
         ]);
     }
 
+    public function actionGridSave()
+    {
+        $model = new GridSettings();
+
+        if ($model->load(Yii::$app->request->post())) {
+            $model->user_id = Yii::$app->user->id;
+            $model->columns = json_encode($model->columnsOn);
+            $model->created_at = date('Y-m-d H:i:s');
+            if ($model->save()) {
+                Yii::$app->session->setFlash('success', 'Szablon został dodany prawidłowo.');
+            }
+
+            return $this->redirect('index');
+        }
+
+        return $this->renderAjax('_gridSave', [
+            'model' => $model,
+        ]);
+    }
+
     /**
      * Creates a new Signup model.
      * @return mixed
+     * @throws \yii\base\Exception
      */
     public function actionSignup()
     {

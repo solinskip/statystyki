@@ -251,3 +251,15 @@ li.first.disabled, li.last.disabled {
     top: 3px !important;
     right: 30px !important;
 }
+
+.modal-title {
+    margin: 20px 0 0 0;
+}
+
+.modal-header > button {
+    display: none;
+}
+
+.input-group-addon {
+    padding-top: 5px;
+}

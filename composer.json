@@ -26,7 +26,8 @@
         "kartik-v/yii2-date-range": "dev-master",
         "kartik-v/yii2-dynagrid": "@dev",
         "kartik-v/yii2-nav-x": "@dev",
-        "johnitvn/yii2-ajaxcrud": "*"
+        "johnitvn/yii2-ajaxcrud": "*",
+        "kartik-v/yii2-sortable-input": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

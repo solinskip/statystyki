@@ -62,11 +62,20 @@ $config = [
             'class' => '\kartik\dynagrid\Module',
             'dynaGridOptions' => [
 //                'storage' => 'db',
-                'toggleButtonFilter' => [
-                    //'title'=> Yii::t('appGlowne', 'Zapisz filtr')
+                'toggleButtonGrid' => [
+                    'icon' => '',
+                    'label' => '<i class="fas fa-wrench fa-fw"></i>',
+                    'class' => 'btn btn-primary',
+                ],
+                 'toggleButtonFilter' => [
+                    'icon' => '',
+                    'label' => '<i class="fas fa-filter"></i>',
+                    'class' => 'btn btn-default',
                 ],
                 'toggleButtonSort' => [
-                    //'title'=> Yii::t('appGlowne', 'Zapisz ustawienia sortowania')
+                    'icon' => '',
+                    'label' => '<i class="fas fa-sort"></i>',
+                    'class' => 'btn btn-default',
                 ],
                 'gridOptions' => [
                     'resizableColumns' => false,
