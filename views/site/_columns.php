@@ -1,6 +1,9 @@
 <?php
 
+use yii\helpers\ArrayHelper;
 use app\models\GridSettings;
+use app\models\Prowadzacy;
+use kartik\select2\Select2;
 
 return [
     [
@@ -44,7 +47,16 @@ return [
             }
 
             return $result;
-        }
+        },
+        'filter' => Select2::widget([
+            'model' => $searchModel,
+            'attribute' => 'imie_prowadzacego',
+            'data' => ArrayHelper::map(Prowadzacy::find()->select('imie_prowadzacego')->groupBy('imie_prowadzacego')->asArray()->all(), 'imie_prowadzacego', 'imie_prowadzacego'),
+            'options' => [
+                'multiple' => true,
+                'placeholder' => 'Wybierz...',
+            ]
+        ]),
     ],
     [
         'class' => '\kartik\grid\DataColumn',

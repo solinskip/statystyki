@@ -164,7 +164,7 @@ class RealizacjaSearch extends Realizacja
 
         $query->andFilterWhere(['like', 'realizacja.nazwa_projektu', $this->nazwa_projektu])
             ->andFilterWhere(['like', 'realizacja.opis', $this->opis])
-            ->andFilterWhere(['like', 'imie_prowadzacego', $this->imie_prowadzacego])
+            ->andFilterWhere(['in', 'imie_prowadzacego', $this->imie_prowadzacego])
             ->andFilterWhere(['like', 'nazwisko_prowadzacego', $this->nazwisko_prowadzacego])
             ->andFilterWhere(['like', 'stanowisko', $this->stanowisko_prowadzacego])
             ->andFilterWhere(['like', 'adres_email', $this->adres_email_prowadzacego])
